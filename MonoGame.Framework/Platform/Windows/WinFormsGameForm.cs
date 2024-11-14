@@ -233,9 +233,9 @@ namespace Microsoft.Xna.Framework.Windows
             string[] files = new string[count];
             for (uint i = 0; i < count; i++)
             {
-                uint buffSize = DragQueryFile(hdrop, i, null, int.MaxValue);
-                StringBuilder builder = new StringBuilder((int)buffSize);
-                DragQueryFile(hdrop, i, builder, buffSize);
+                uint charCount = DragQueryFile(hdrop, i, null, int.MaxValue);
+                StringBuilder builder = new StringBuilder((int)charCount);
+                DragQueryFile(hdrop, i, builder, charCount + 1);
                 files[i] = builder.ToString();
             }
 
